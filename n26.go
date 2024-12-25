@@ -12,14 +12,6 @@ import (
 	"cuelang.org/go/cue/load"
 )
 
-func main() {
-	if false {
-		cuetest()
-		importFile("N26_report.csv")
-	}
-
-	fmt.Print("COM - N26 has been loaded")
-}
 func cuetest() {
 	ctx := cuecontext.New()
 
