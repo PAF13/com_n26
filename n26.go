@@ -32,7 +32,7 @@ func cuetest() {
 	fmt.Println(output)
 }
 
-func importFile(path string) []*Transaction {
+func ImportFile(path string) []*Transaction {
 	file, err := os.Open(path)
 	if err != nil {
 		fmt.Println("Error opening file:", err)
@@ -50,12 +50,12 @@ func importFile(path string) []*Transaction {
 	bankTrans := []*Transaction{}
 
 	for _, row := range records {
-		bankTrans = append(bankTrans, NewTransaction(row))
+		bankTrans = append(bankTrans, newTransaction(row))
 	}
 	return bankTrans
 }
 
-func NewTransaction(transaction []string) *Transaction {
+func newTransaction(transaction []string) *Transaction {
 	amount, _ := strconv.ParseFloat(transaction[7], 64)
 	return &Transaction{
 		BookingDate:      transaction[0],
