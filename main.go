@@ -1,4 +1,4 @@
-package main
+package com_n26
 
 import (
 	"encoding/csv"
