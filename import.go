@@ -3,34 +3,9 @@ package com_n26
 import (
 	"encoding/csv"
 	"fmt"
-	"log"
 	"os"
 	"strconv"
-
-	"cuelang.org/go/cue"
-	"cuelang.org/go/cue/cuecontext"
-	"cuelang.org/go/cue/load"
 )
-
-func cuetest() {
-	ctx := cuecontext.New()
-
-	// Load the package "example" from the current directory.
-	// We don't need to specify a config in this example.
-	insts := load.Instances([]string{"."}, nil)
-
-	// The current directory just has one file without any build tags,
-	// and that file belongs to the example package.
-	// So we get a single instance as a result.
-	v := ctx.BuildInstance(insts[0])
-	if err := v.Err(); err != nil {
-		log.Fatal(err)
-	}
-
-	// Lookup the 'output' field and print it out
-	output := v.LookupPath(cue.ParsePath("output"))
-	fmt.Println(output)
-}
 
 func ImportFile(path string) []*Transaction {
 	file, err := os.Open(path)
