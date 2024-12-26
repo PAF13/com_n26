@@ -7,6 +7,7 @@ import (
 	"strconv"
 )
 
+// test
 func ImportFile(path string) []*Transaction {
 	file, err := os.Open(path)
 	if err != nil {
@@ -32,6 +33,8 @@ func ImportFile(path string) []*Transaction {
 
 func newTransaction(transaction []string) *Transaction {
 	amount, _ := strconv.ParseFloat(transaction[7], 64)
+	originalAmount, _ := strconv.ParseFloat(transaction[8], 64)
+	exchangeRate, _ := strconv.ParseFloat(transaction[10], 64)
 	return &Transaction{
 		BookingDate:      transaction[0],
 		ValueDate:        transaction[1],
@@ -41,9 +44,9 @@ func newTransaction(transaction []string) *Transaction {
 		PaymentReference: transaction[5],
 		AccountName:      transaction[6],
 		AmountEUR:        amount,
-		OriginalAmount:   0,
+		OriginalAmount:   originalAmount,
 		OriginalCurrency: transaction[9],
-		ExchangeRate:     0,
+		ExchangeRate:     exchangeRate,
 	}
 }
 
