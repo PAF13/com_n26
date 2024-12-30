@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"time"
 )
 
 // test
@@ -62,4 +63,18 @@ type Transaction struct {
 	OriginalAmount   float64 `json:"original_amount"`
 	OriginalCurrency string  `json:"original_currency"`
 	ExchangeRate     float64 `json:"exchange_rate"`
+}
+
+type Transaction_N26 struct {
+	BookingDate      time.Time `json:"booking_date"`
+	ValueDate        time.Time `json:"value_date"`
+	PartnerName      string    `json:"partner_name"`
+	PartnerIBAN      string    `json:"partner_iban"`
+	Type             string    `json:"type"`
+	PaymentReference string    `json:"payment_reference"`
+	AccountName      string    `json:"account_name"`
+	AmountEUR        float32   `json:"amount_eur"`
+	OriginalAmount   float32   `json:"original_amount"`
+	OriginalCurrency string    `json:"original_currency"`
+	ExchangeRate     float32   `json:"exchange_rate"`
 }
