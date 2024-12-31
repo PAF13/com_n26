@@ -66,6 +66,7 @@ type Transaction struct {
 }
 
 type Records struct {
+	ID               *string    `json:"id"`
 	BookingDate      *time.Time `json:"booking_date"`
 	ValueDate        *time.Time `json:"value_date"`
 	PartnerName      *string    `json:"partner_name"`
